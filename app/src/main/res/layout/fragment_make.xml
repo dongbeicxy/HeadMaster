@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_view"
+    android:background="@mipmap/make_page_bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/camera"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="相机自拍"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:bl_corners_radius="8dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/colorPrimary"
+            app:bl_stroke_width="0.5dp" />
+
+        <TextView
+            android:id="@+id/picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:drawableLeft="@mipmap/picture"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="选择图片"
+            android:textColor="@color/brick_red"
+            android:textSize="20sp"
+            app:bl_corners_radius="8dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/brick_red"
+            app:bl_stroke_width="0.5dp" />
+
+    </LinearLayout>
+</RelativeLayout>

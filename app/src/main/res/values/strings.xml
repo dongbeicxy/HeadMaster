@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">头像制作神器</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="email">nafastpro2019@gmail.com</string>
+    <string name="disclaimer">APP中所有的图片、头像等素材均来自于互联网，如有发现其中素材内容侵犯了您的版权，单位或个人均可以以书面的形式向我们提交您的版权说明，我们会及时处理并回复</string>
+</resources>

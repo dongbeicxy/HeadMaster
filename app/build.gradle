@@ -1,0 +1,227 @@
+apply plugin: 'com.android.application'
+// # 配置点   1
+apply plugin: 'com.jakewharton.butterknife'
+//Realm 数据库
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.ahnz.headmaster"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 3
+        versionName "1.0.2"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // 添加一个默认渠道号
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+        flavorDimensions "release"
+        multiDexEnabled = true //表示可以进行分包, 用于启用MultiDex
+        //butterknife 所需配置
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        //友盟QQ分享
+        manifestPlaceholders = [qqappid: "101861316"]
+    }
+    signingConfigs {
+        release {
+            storeFile file('../head_master.jks')
+            storePassword "1234qwer"
+            keyAlias "hm"
+            keyPassword "1234qwer"
+        }
+        app_debug {
+            storeFile file('../head_master.jks')
+            storePassword '1234qwer'
+            keyAlias 'hm'
+            keyPassword '1234qwer'
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.app_debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            //告诉android studio 去 libs中找.so 文件
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    //flavorDimensions "default"
+    productFlavors {
+        yingyongbao {
+            // 投放应用宝市场
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
+        }
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+        }
+        oppo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "oppo"]
+        }
+        vivo {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "vivo"]
+        }
+        qh360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+        }
+    }
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    //自定义APK名称,多渠道打包
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            variant.productFlavors.each { flavor ->
+                def project = "hm"
+                def separator = "_"
+                def buildType = variant.variantData.variantConfiguration.buildType.name
+                def versionName = variant.versionName
+                def versionCode = variant.versionCode
+                def date = new Date()
+                def formattedDate = date.format('yyyyMMdd')
+                def apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + flavor.name + ".apk"
+                if (buildType == "release") {
+                    apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + flavor.name + separator + formattedDate + ".apk"
+                }
+                output.outputFileName = apkName
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.1.0'
+    implementation 'androidx.navigation:navigation-ui:2.1.0'
+
+    //底部菜单栏
+    implementation 'me.majiajie:pager-bottom-tab-strip:2.3.0X'
+
+    //注解式框架
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    //沉浸式 状态栏
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // fragment快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+
+    //UI 库
+    implementation 'com.qmuiteam:qmui:2.0.0-alpha07'
+
+    //标签直接生成shape
+    implementation 'com.noober.background:core:1.6.3'
+
+    //滑动指示器
+    implementation 'com.github.hackware1993:MagicIndicator:1.6.0'
+
+    //图片加载框架
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    // 高斯模糊和圆角等
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    // GPUImage
+    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
+
+    //Recyclerview万能适配器
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+
+    //网络请求
+    implementation 'com.zhouyou:rxeasyhttp:2.1.5'
+
+    //智能下拉刷新框架
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.2'
+    //没有使用特殊Header，可以不加这行
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.2'
+
+    //热门标签 UI 库
+    implementation 'com.google.android:flexbox:1.1.0'
+
+    //权限使用框架
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+
+    //状态切换 框架
+    implementation project(':rpagestatuscontroller')
+
+    //Hawk 一款基于SharedPreferences的存储框架
+    implementation "com.orhanobut:hawk:2.0.1"
+
+    implementation 'com.android.support:multidex:1.0.1' //支持包用于5.0以下系统
+
+    //基础组件库 分享核心库
+    implementation 'com.umeng.umsdk:common:2.2.5'
+    implementation 'com.umeng.umsdk:share-core:7.0.2'
+    implementation 'com.umeng.umsdk:share-board:7.0.2'
+
+    //三方分享平台库
+    implementation 'com.umeng.umsdk:share-qq:7.0.2'
+    implementation 'com.umeng.umsdk:share-wx:7.0.2'
+
+    // 友盟统计SDK
+    implementation 'com.umeng.umsdk:common:9.1.0' // (必选)
+    //implementation  'com.umeng.umsdk:game:9.1.0+G' // 游戏统计SDK依赖(可选)
+    implementation 'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+
+    implementation 'com.umeng.umsdk:oaid_lenovo:1.0.0' // (可选)
+    implementation 'com.umeng.umsdk:oaid_mi:1.0.0' // (可选)
+    implementation 'com.umeng.umsdk:oaid_oppo:1.0.4' // (可选)
+    implementation 'com.umeng.umsdk:oaid_vivo:1.0.0.1' // (可选)
+
+    //穿山甲 广告
+    compile(name: 'open_ad_sdk', ext: 'aar')
+
+    //两端对齐textview
+    implementation 'cn.tseeey:justtextview:0.1.0'
+
+    //圆形 ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+
+    // 图片 裁剪
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    //事件 通信
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    //webview
+    implementation 'com.just.agentweb:agentweb:4.1.3' // (必选)
+
+    /*********************************************************************/
+    //水波纹 组件
+    //implementation 'com.scwang.wave:MultiWaveHeader:1.0.0-alpha-1'
+
+    //内存泄漏的检测工具——LeakCanary
+    //implementation  'com.squareup.leakcanary:leakcanary-android:1.5.4'
+}

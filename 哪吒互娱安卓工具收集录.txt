@@ -1,0 +1,22 @@
+1.Android单点触控技术，对图片进行平移，缩放，旋转操作
+  https://blog.csdn.net/xiaanming/article/details/42833893
+  类似in/百度魔图
+  https://www.cnblogs.com/andlp/p/5972260.html
+
+2.drawableLeft与文本一起居中显示
+  https://blog.csdn.net/shenshibaoma/article/details/53405524
+
+3.java单例模式几种实现方式
+  https://www.cnblogs.com/ngy0217/p/9006716.html
+
+4.Realm 集成
+  https://blog.csdn.net/u013651026/article/details/96479407
+  https://www.cnblogs.com/endv/p/12229594.html
+
+5.ScrollView 嵌套 ViewPager 不显示
+  https://www.jianshu.com/p/ba754761b43a
+
+6.友盟多渠道打包
+ https://blog.csdn.net/a872822645/article/details/103991111
+
+7.

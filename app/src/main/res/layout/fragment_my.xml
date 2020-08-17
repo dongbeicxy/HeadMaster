@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/light_blue"
+            app:bl_stroke_width="0.5dp">
+
+            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/user_icon_common" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/user_icon"
+                android:text="普通用户"
+                android:textColor="@color/light_blue"
+                android:textSize="22sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/vip"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/collection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@mipmap/collection"
+            android:drawableRight="@mipmap/right_arrow"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="我的收藏"
+            android:textColor="@android:color/black"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray"
+            app:bl_stroke_width="0.5dp" />
+
+        <TextView
+            android:id="@+id/vip_privilege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@mipmap/vip_privilege"
+            android:drawableRight="@mipmap/right_arrow"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="升级VIP特权"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray"
+            app:bl_stroke_width="0.5dp" />
+
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@mipmap/comment"
+            android:drawableRight="@mipmap/right_arrow"
+            android:drawablePadding="16dp"
+            android:padding="16dp"
+            android:text="去给我们好评"
+            android:textColor="@android:color/black"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray"
+            app:bl_stroke_width="0.5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:bl_corners_radius="4dp"
+            app:bl_solid_color="@color/white"
+            app:bl_stroke_color="@color/gray"
+            app:bl_stroke_width="0.5dp">
+
+            <TextView
+                android:id="@+id/policy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/policy"
+                android:drawableRight="@mipmap/right_arrow"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:text="隐私政策"
+                android:textColor="@color/gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/use_agreement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/use_agreement"
+                android:drawableRight="@mipmap/right_arrow"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:text="使用协议"
+                android:textColor="@color/gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/statement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/statement"
+                android:drawableRight="@mipmap/right_arrow"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:text="免责声明"
+                android:textColor="@color/gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/feedback"
+                android:drawableRight="@mipmap/right_arrow"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:padding="16dp"
+                android:text="意见反馈"
+                android:textColor="@color/gray" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/gray" />
+
+            <RelativeLayout
+                android:id="@+id/cache_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/cache"
+                    android:drawablePadding="16dp"
+                    android:gravity="center_vertical"
+                    android:text="清理缓存"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/cache_size_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginLeft="16dp"
+                android:background="@color/gray" />
+
+            <RelativeLayout
+                android:id="@+id/versioncode_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@mipmap/versioncode"
+                    android:drawablePadding="16dp"
+                    android:gravity="center_vertical"
+                    android:text="版本号"
+                    android:textColor="@color/gray" />
+
+                <TextView
+                    android:id="@+id/version_name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <com.ahnz.headmaster.widget.ScaleLayout
+            android:id="@+id/ad_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            android:visibility="gone"
+            app:bl_corners_radius="8dp"
+            app:bl_solid_color="@color/gray"
+            app:heightToWidth="0.25">
+
+            <RelativeLayout
+                android:id="@+id/ad_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@color/white" />
+
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:id="@+id/clean_ad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="一键去广告"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                app:qmui_backgroundColor="@color/brick_red"
+                app:qmui_borderColor="@color/brick_red"
+                app:qmui_isRadiusAdjustBounds="true" />
+
+        </com.ahnz.headmaster.widget.ScaleLayout>
+    </LinearLayout>
+
+</ScrollView>

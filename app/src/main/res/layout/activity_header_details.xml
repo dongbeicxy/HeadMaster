@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--    底部菜单项 布局-->
+    <LinearLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:bl_corners_radius="16dp"
+        app:bl_solid_color="@color/gray">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/save"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:onClick="clickSave"
+            android:text="保存"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/beautify"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:onClick="clickBeautify"
+            android:text="美化"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/collect"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:onClick="clickCollection"
+            android:text="收藏"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/share"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:onClick="clickShare"
+            android:text="分享"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <com.ahnz.headmaster.widget.ScaleLayout
+        android:id="@+id/pic_imageview_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        app:bl_stroke_color="@color/black"
+        app:bl_stroke_width="0.5dp"
+        app:heightToWidth="1.0">
+
+        <ImageView
+            android:id="@+id/pic_imageview_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--        边框-->
+        <ImageView
+            android:id="@+id/pic_imageview_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!--        贴图-->
+        <!--        <com.ahnz.headmaster.widget.TouchImageView-->
+        <!--            android:id="@+id/pic_imageview_mapping"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:scaleType="matrix"-->
+        <!--            android:visibility="gone" />-->
+
+        <com.ahnz.headmaster.widget.PicsGestureLayout
+            android:id="@+id/mapping_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent" />
+
+
+        <!--        <com.ahnz.headmaster.widget.SingleTouchView-->
+        <!--            android:id="@+id/SingleTouchView"-->
+        <!--            android:layout_width="64dp"-->
+        <!--            android:layout_height="64dp"-->
+        <!--            app:src="@mipmap/weixin" />-->
+
+    </com.ahnz.headmaster.widget.ScaleLayout>
+
+    <!--    选项布局-->
+    <ScrollView
+        android:id="@+id/new_header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pic_imageview_layout"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/magic_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <com.ahnz.headmaster.widget.ViewPagerForScrollView
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" />
+
+            <com.ahnz.headmaster.widget.DrawableCenterTextView
+                android:id="@+id/new_header_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@mipmap/new_header"
+                android:drawablePadding="4dp"
+                android:onClick="clickNewHeader"
+                android:padding="16dp"
+                android:text="生成新头像"
+                android:textColor="@color/white"
+                app:bl_corners_radius="8dp"
+                app:bl_solid_color="@color/brick_red" />
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

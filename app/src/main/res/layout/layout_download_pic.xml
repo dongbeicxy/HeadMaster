@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        app:bl_corners_radius="16dp"
+        app:bl_solid_color="@color/black">
+
+        <!--        <com.ahnz.headmaster.widget.PercentCircle-->
+        <!--            android:id="@+id/percent_circle"-->
+        <!--            android:layout_width="64dp"-->
+        <!--            android:layout_height="64dp"-->
+        <!--            app:circleBackground="@color/black"-->
+        <!--            app:radius="250"-->
+        <!--            app:ringColor="@color/white"-->
+        <!--            app:textColor="@color/white" />-->
+
+        <ProgressBar
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop" />
+    </LinearLayout>
+
+</LinearLayout>
